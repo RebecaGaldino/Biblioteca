@@ -9,4 +9,11 @@ public class Aluno extends AbstractAssociado{
 		super(idAssociado, nome, endereco, emprestimos);
 	}
 
+	public boolean equals(Aluno a){
+		if(a.getIdAssociado() == this.getIdAssociado())
+			if(a.getNome() == this.getNome())
+				if(a.getEndereco() == this.getEndereco())
+					return true;
+		return false;
+	}
 }

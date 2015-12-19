@@ -8,4 +8,12 @@ public class Professor extends AbstractAssociado{
 			ArrayList<Emprestimo> emprestimos) {
 		super(idAssociado, nome, endereco, emprestimos);
 	}
+	
+	public boolean equals(Professor p){
+		if(p.getIdAssociado() == this.getIdAssociado())
+			if(p.getNome() == this.getNome())
+				if(p.getEndereco() == this.getEndereco())
+					return true;
+		return false;
+	}
 }
