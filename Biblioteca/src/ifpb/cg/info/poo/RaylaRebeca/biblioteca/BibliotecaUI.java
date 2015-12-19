@@ -29,7 +29,7 @@ public class BibliotecaUI {
 				LivroUI.adicionarLivro(biblioteca);
 				break;
 			case "4" :
-				//METODOS REVISTAS TO DO
+				RevistaUI.adicionarLivro(biblioteca);
 				break;
 			default: 
 				System.err.println("Insira um digito valido!");
