@@ -6,7 +6,16 @@ public class Revista extends AbstractExemplar{
 		super(titulo, editora, localDeEdicao, keywords, quantidade, edicao);
 	}
 	
-	/*public boolean equals() {
-		
-	}*/
+	
+	public boolean equals(Revista r){
+		if(r.getClass() == this.getClass())
+			if(r.getTitulo() == this.getTitulo())
+				if(r.getEditora() == this.getEditora())
+					if(r.getLocalDeEdicao() == this.getLocalDeEdicao())
+						if(r.getKeywords() == this.getKeywords())
+							if(r.getQuantidade() == this.getQuantidade())
+								if(r.getEdicao() == this.getEdicao())
+									return true;
+		return false;
+	}
 }

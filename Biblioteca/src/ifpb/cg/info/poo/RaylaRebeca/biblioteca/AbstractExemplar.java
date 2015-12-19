@@ -10,6 +10,7 @@ public abstract class AbstractExemplar {
 	protected int quantidade;
 	protected int edicao;
 
+
 	public AbstractExemplar(String titulo, String editora, String localDeEdicao, String keywords, int quantidade, int edicao) {
 		this.titulo = titulo;
 		this.editora = editora;
@@ -67,4 +68,9 @@ public abstract class AbstractExemplar {
 		this.edicao = edicao;
 	}
 
+
+	
+	
+
+	
 }

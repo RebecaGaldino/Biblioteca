@@ -27,8 +27,17 @@ public class Livro extends AbstractExemplar {
 		ISBN = iSBN;
 	}
 	
-	/*public boolean equals() {
-		
-	}*/
-
+	public boolean equals(Livro l){
+		if(l.getClass() == this.getClass())
+			if(l.getTitulo() == this.getTitulo())
+				if(l.getEditora() == this.getEditora())
+					if(l.getLocalDeEdicao() == this.getLocalDeEdicao())
+						if(l.getKeywords() == this.getKeywords())
+							if(l.getQuantidade() == this.getQuantidade())
+								if(l.getEdicao() == this.getEdicao())
+									if(l.getISBN() == this.getISBN())
+										return true;
+		return false;
+	}
+	
 }
