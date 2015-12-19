@@ -175,7 +175,7 @@ public class Biblioteca {
 			}
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
-			gc.add(gc.MONTH, 1);
+			gc.add(Calendar.MONTH, 1);
 			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getISBN());
 			x.getEmprestimos().add(e);
 			y.setQuantidade(y.getQuantidade()-1);
@@ -195,7 +195,7 @@ public class Biblioteca {
 			}
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
-			gc.add(gc.MONTH, 1);
+			gc.add(Calendar.MONTH, 1);
 			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getTitulo(),y.getEdicao());
 			x.getEmprestimos().add(e);
 			y.setQuantidade(y.getQuantidade()-1);
@@ -217,7 +217,7 @@ public class Biblioteca {
 			}
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
-			gc.add(gc.MONTH, 1);
+			gc.add(Calendar.MONTH, 1);
 			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getISBN());
 			x.getEmprestimos().add(e);
 			y.setQuantidade(y.getQuantidade()-1);
@@ -238,7 +238,7 @@ public class Biblioteca {
 			}
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
-			gc.add(gc.MONTH, 1);
+			gc.add(Calendar.MONTH, 1);
 			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getTitulo(),y.getEdicao());
 			x.getEmprestimos().add(e);
 			y.setQuantidade(y.getQuantidade()-1);
@@ -246,6 +246,47 @@ public class Biblioteca {
 			throw new Exception("O professor ja atingiu a cota maxima de livros e revistas locados!\n");
 		
 	}
+	
+	//-ALL 
+	
+	public void exibirEmprestimos(Aluno a){
+		Aluno x = alunos.get(findPos(a));
+		for(int i = 0; i < x.getEmprestimos().size(); i++){
+			if(x.getEmprestimos().get(i).getISBN() != null){
+				Livro l = findLivro(x.getEmprestimos().get(i).getISBN());
+				System.out.println("Titulo: " + l.getTitulo()
+								+ "ISBN: " + l.getISBN() 
+								+ "Data de emprestimo: " + x.getEmprestimos().get(i).getDtDevolucao() 
+								+ "\n---------------------------------------------\n"
+						);
+			}	else
+				System.out.println("Titulo: " + x.getEmprestimos().get(i).getTitulo() 
+						+ "Edicao: " + x.getEmprestimos().get(i).getEdicao() 
+						+ "Data de emprestimo: " + x.getEmprestimos().get(i).getDtDevolucao() 
+						+ "\n---------------------------------------------\n"
+				);
+		}
+	}
+	
+	public void exibirEmprestimos(Professor p){
+		Professor x = professores.get(findPos(p));
+		for(int i = 0; i < x.getEmprestimos().size(); i++){
+			if(x.getEmprestimos().get(i).getISBN() != null){
+				Livro l = findLivro(x.getEmprestimos().get(i).getISBN());
+				System.out.println("Titulo: " + l.getTitulo()
+								+ "ISBN: " + l.getISBN() 
+								+ "Data de emprestimo: " + x.getEmprestimos().get(i).getDtDevolucao() 
+								+ "\n---------------------------------------------\n"
+						);
+			}	else
+				System.out.println("Titulo: " + x.getEmprestimos().get(i).getTitulo() 
+						+ "Edicao: " + x.getEmprestimos().get(i).getEdicao() 
+						+ "Data de emprestimo: " + x.getEmprestimos().get(i).getDtDevolucao() 
+						+ "\n---------------------------------------------\n"
+				);
+		}
+	}
+
 	
 	/*---------------------------------- MÉTODOS DE DEVOLUCAO -----------------------------------------------------*/
 	
@@ -338,4 +379,6 @@ public class Biblioteca {
 	}
 	
 	
+	
+		
 }

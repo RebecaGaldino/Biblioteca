@@ -47,5 +47,7 @@ public abstract class AbstractAssociado {
 	public void setEmprestimos(ArrayList<Emprestimo> emprestimos) {
 		this.emprestimos = emprestimos;
 	}
+	
+	
 
 }

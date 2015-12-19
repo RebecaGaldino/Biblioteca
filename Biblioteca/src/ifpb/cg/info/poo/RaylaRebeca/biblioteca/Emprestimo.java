@@ -23,6 +23,7 @@ public class Emprestimo {
 		setIdAssociado(idAssociado);
 		setEdicao(edicao);
 		setTitulo(titulo);
+		setISBN(null);
 	}
 
 	public Date getDtEmprestimo() {
