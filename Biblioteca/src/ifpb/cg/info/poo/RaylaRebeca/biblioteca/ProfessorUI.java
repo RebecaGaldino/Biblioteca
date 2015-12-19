@@ -3,21 +3,20 @@ package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AlunoUI {
-	
+public class ProfessorUI {
 	public static void inicializar(Biblioteca b){
 		try{
 			do{
 			
-			System.out.println("--------------Opcoes para alunos------------");
+			System.out.println("--------------Opcoes para professores------------");
 			System.out.println("O que deseja fazer?");
-			System.out.println(" 1 - Cadastrar aluno \n"
+			System.out.println(" 1 - Cadastrar professor \n"
 							+ "  2 - Locar um livro ou revista \n"
 							+ "  3 - Devolver um livro ou revista \n"
-							+ "  4 - Ver livros  revistas pegos de um aluno\n"
+							+ "  4 - Ver livros  revistas pegos de um professor\n"
 							+ "  5 - Voltar ao Menu ");
 		    
-			} while(AlunoUI.escolha(b));
+			} while(ProfessorUI.escolha(b));
 		} catch (Exception e){
 			System.err.println(e.getMessage());
 		}
@@ -25,22 +24,22 @@ public class AlunoUI {
 	}
 	
 	public static boolean escolha(Biblioteca b) throws Exception{
-		AlunoUI aluno = new AlunoUI();
+		ProfessorUI prof = new ProfessorUI();
 		try{
 			Scanner s = new Scanner(System.in);
 			int op = s.nextInt();
 			switch (op){
 				case 1 : 
-					aluno.cadastrarA(b);
+					prof.cadastrarP(b);
 					return true;
 				case 2 : 
-					aluno.locarA(b);
+					prof.locarP(b);
 					return true;
 				case 3 : 
-					aluno.devolverA(b);
+					prof.devolverP(b);
 					return true;
 				case 4 : 
-					aluno.exibirA(b);
+					prof.exibirP(b);
 					return true;
 				case 5 :
 					return true;
@@ -56,17 +55,17 @@ public class AlunoUI {
 	   }
 	}	
 	
-	public  void cadastrarA(Biblioteca b) throws Exception{
+	public  void cadastrarP(Biblioteca b) throws Exception{
 		try{
 			Scanner s = new Scanner(System.in);
-			System.out.println("Insira o id de associado pra o aluno:\n");
+			System.out.println("Insira o id de associado pra o professor:\n");
 			int id = s.nextInt();
 			System.out.println("Insira o nome dele:\n");
 			String nome = s.nextLine();
 			System.out.println("Insira o endereco dele:\n");
 			String endereco = s.nextLine();
 			ArrayList<Emprestimo> array = new ArrayList<Emprestimo>();
-			Aluno a = new Aluno(id,nome,endereco,array);
+			Professor p = new Professor(id,nome,endereco,array);
 			System.out.println("Cadastro concluido com sucesso!\n");
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
@@ -75,10 +74,10 @@ public class AlunoUI {
 	}
 
 	
-	public void locarA(Biblioteca b) throws Exception{
+	public void locarP(Biblioteca b) throws Exception{
 		try{
 			Scanner s = new Scanner(System.in);
-			System.out.println("Insira o ID do aluno:\n");
+			System.out.println("Insira o ID do professor:\n");
 			int id = s.nextInt(); 
 			System.out.println("O que voce deseja levar? 1 - Livro 2 - Revista\n");
 			int c = s.nextInt();
@@ -88,7 +87,7 @@ public class AlunoUI {
 					
 					System.out.println("Insira o ISBN do livro:\n");
 					String isbn = s.nextLine();
-					b.emprestimoAluno(b.findAluno(id), b.findLivro(isbn));
+					b.emprestimoProfessor(b.findProfessor(id), b.findLivro(isbn));
 					break;
 					
 				case 2:
@@ -97,7 +96,7 @@ public class AlunoUI {
 					String nome = s.nextLine();
 					System.out.println("Insira a edicao da revista:\n");
 					int ed = s.nextInt();
-					b.emprestimoAluno(b.findAluno(id), b.findRevista(nome,ed));
+					b.emprestimoProfessor(b.findProfessor(id), b.findRevista(nome,ed));
 					break;
 				
 				default:
@@ -112,10 +111,10 @@ public class AlunoUI {
 		
 	}	
 	
-	public void devolverA(Biblioteca b) throws Exception{
+	public void devolverP(Biblioteca b) throws Exception{
 		try{
 			Scanner s = new Scanner(System.in);
-			System.out.println("Insira o ID do aluno:\n");
+			System.out.println("Insira o ID do professor:\n");
 			int id = s.nextInt(); 
 			System.out.println("O que voce deseja devolver? 1 - Livro 2 - Revista\n");
 			int c = s.nextInt();
@@ -125,7 +124,7 @@ public class AlunoUI {
 					
 					System.out.println("Insira o ISBN do livro:\n");
 					String isbn = s.nextLine();
-					b.devolucaoLivro(b.findAluno(id), b.findLivro(isbn));
+					b.devolucaoLivro(b.findProfessor(id), b.findLivro(isbn));
 					break;
 					
 				case 2:
@@ -134,7 +133,7 @@ public class AlunoUI {
 					String nome = s.nextLine();
 					System.out.println("Insira a edicao da revista:\n");
 					int ed = s.nextInt();
-					b.devolucaoRevista(b.findAluno(id), b.findRevista(nome,ed));
+					b.devolucaoRevista(b.findProfessor(id), b.findRevista(nome,ed));
 					break;
 				
 				default:
@@ -151,10 +150,10 @@ public class AlunoUI {
 		
 	}
 	
-	public void exibirA(Biblioteca b){
+	public void exibirP(Biblioteca b){
 		Scanner s = new Scanner(System.in);
-		System.out.println("Insira o ID de associado do aluno:\n");
+		System.out.println("Insira o ID de associado do professor:\n");
 		int id = s.nextInt();
-		b.exibirEmprestimos(b.findAluno(id));
+		b.exibirEmprestimos(b.findProfessor(id));
 	}
 }

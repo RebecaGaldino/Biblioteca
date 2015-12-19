@@ -142,6 +142,13 @@ public class Biblioteca {
 		return false;
 	}
 	
+	public Professor findProfessor(int id){
+		for(int i = 0; i < professores.size(); i++)
+			if(professores.get(i).getIdAssociado() == id)
+				return professores.get(i);
+		return null;
+	}
+	
 	public int findPos(Professor p){
 		for(int i = 0; i < professores.size(); i++)
 			if(professores.get(i).equals(p))
