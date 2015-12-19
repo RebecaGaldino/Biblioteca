@@ -4,23 +4,25 @@ import java.util.*;
 
 public class Emprestimo {
 	private Date dtEmprestimo;
-	private Date dtDevolucao;
+	private GregorianCalendar dtDevolucao;
+	private String titulo; //para revistas somente
 	private int edicao;
 	private String ISBN;
 	private int idAssociado;
 
-	public Emprestimo(Date dtEmprestimo, Date dtDevolucao, int idAssociado, String iSBN) {
-		this.dtEmprestimo = dtEmprestimo;
-		this.dtDevolucao = dtDevolucao;
-		this.idAssociado = idAssociado;
-		ISBN = iSBN;
+	public Emprestimo(Date dtEmprestimo, GregorianCalendar dtDevolucao, int idAssociado, String iSBN) {
+		setDtEmprestimo(dtEmprestimo);
+		setDtDevolucao(dtDevolucao);
+		setIdAssociado(idAssociado);
+		setISBN(iSBN);
 	}
 	
-	public Emprestimo(Date dtEmprestimo, Date dtDevolucao, int idAssociado, int edicao) {
-		this.dtEmprestimo = dtEmprestimo;
-		this.dtDevolucao = dtDevolucao;
-		this.idAssociado = idAssociado;
-		this.edicao = edicao;
+	public Emprestimo(Date dtEmprestimo, GregorianCalendar dtDevolucao, int idAssociado, String titulo, int edicao) {
+		setDtEmprestimo(dtEmprestimo);
+		setDtDevolucao(dtDevolucao);
+		setIdAssociado(idAssociado);
+		setEdicao(edicao);
+		setTitulo(titulo);
 	}
 
 	public Date getDtEmprestimo() {
@@ -31,11 +33,11 @@ public class Emprestimo {
 		this.dtEmprestimo = dtEmprestimo;
 	}
 
-	public Date getDtDevolucao() {
+	public GregorianCalendar getDtDevolucao() {
 		return dtDevolucao;
 	}
 
-	public void setDtDevolucao(Date dtDevolucao) {
+	public void setDtDevolucao(GregorianCalendar dtDevolucao) {
 		this.dtDevolucao = dtDevolucao;
 	}
 
@@ -61,6 +63,14 @@ public class Emprestimo {
 
 	public void setISBN(String iSBN) {
 		ISBN = iSBN;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 }
