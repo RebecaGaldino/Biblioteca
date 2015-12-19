@@ -33,7 +33,6 @@ public class Livro extends AbstractExemplar {
 				if(l.getEditora() == this.getEditora())
 					if(l.getLocalDeEdicao() == this.getLocalDeEdicao())
 						if(l.getKeywords() == this.getKeywords())
-							if(l.getQuantidade() == this.getQuantidade())
 								if(l.getEdicao() == this.getEdicao())
 									if(l.getISBN() == this.getISBN())
 										return true;

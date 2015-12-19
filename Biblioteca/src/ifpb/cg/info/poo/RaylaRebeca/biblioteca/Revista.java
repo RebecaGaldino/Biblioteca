@@ -13,7 +13,6 @@ public class Revista extends AbstractExemplar{
 				if(r.getEditora() == this.getEditora())
 					if(r.getLocalDeEdicao() == this.getLocalDeEdicao())
 						if(r.getKeywords() == this.getKeywords())
-							if(r.getQuantidade() == this.getQuantidade())
 								if(r.getEdicao() == this.getEdicao())
 									return true;
 		return false;
