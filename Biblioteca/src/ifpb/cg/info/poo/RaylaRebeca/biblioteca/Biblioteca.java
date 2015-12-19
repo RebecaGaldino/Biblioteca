@@ -162,13 +162,15 @@ public class Biblioteca {
 
 	/*---------------------------------- MÉTODOS DE EMPRESTIMOS -----------------------------------------------------*/
 	
+	//ALUNOS
+	
 	public void emprestimoAluno(Aluno a, Livro l) throws Exception{
 		Aluno x = alunos.get(findPos(a));
 		Livro y =  livros.get(findPos(l));
 		int tam = x.getEmprestimos().size();
 		if( tam < 3){
 			for(int i = 0; i < x.getEmprestimos().size(); i++){
-				if(x.getEmprestimos().get(i).getTitulo() == y.getTitulo())
+				if(x.getEmprestimos().get(i).getISBN() == y.getISBN())
 					throw new Exception("O aluno já locou esse livro!\n");
 			}
 			Date hoje = new Date();
@@ -201,5 +203,48 @@ public class Biblioteca {
 			throw new Exception("O aluno ja atingiu a cota maxima de livros e revistas locados!\n");
 		
 	}
+	
+	//PROFESSORES
+	
+	public void emprestimoProfessor(Professor p, Livro l) throws Exception{
+		Professor x = professores.get(findPos(p));
+		Livro y =  livros.get(findPos(l));
+		int tam = x.getEmprestimos().size();
+		if( tam < 5){
+			for(int i = 0; i < x.getEmprestimos().size(); i++){
+				if(x.getEmprestimos().get(i).getISBN() == y.getISBN())
+					throw new Exception("O professor já locou esse livro!\n");
+			}
+			Date hoje = new Date();
+			GregorianCalendar gc=new GregorianCalendar();
+			gc.add(gc.MONTH, 1);
+			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getISBN());
+			x.getEmprestimos().add(e);
+			y.setQuantidade(y.getQuantidade()-1);
+		} else
+			throw new Exception("O professor ja atingiu a cota maxima de livros e revistas locados!\n");	
+		
+	}
+	
+	public void emprestimoProfessor(Professor p, Revista r) throws Exception{
+		Professor x = professores.get(findPos(p));
+		Revista y =  revistas.get(findPos(r));
+		int tam = x.getEmprestimos().size();
+		if( tam < 5){
+			for(int i = 0; i < x.getEmprestimos().size(); i++){
+				if(x.getEmprestimos().get(i).getTitulo() == y.getTitulo())
+					throw new Exception("O professor já locou essa revista!\n");
+			}
+			Date hoje = new Date();
+			GregorianCalendar gc=new GregorianCalendar();
+			gc.add(gc.MONTH, 1);
+			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getTitulo(),y.getEdicao());
+			x.getEmprestimos().add(e);
+			y.setQuantidade(y.getQuantidade()-1);
+		} else
+			throw new Exception("O professor ja atingiu a cota maxima de livros e revistas locados!\n");
+		
+	}
+	
 	
 }
