@@ -125,7 +125,7 @@ public class Biblioteca {
 			System.out.println("Aluno cadastrado com sucesso!\n");
 			
 		} else {
-			throw new Exception("Aluno já cadastrado!\n");
+			throw new Exception("Aluno ja cadastrado!\n");
 		}
 	}
 	
@@ -155,7 +155,7 @@ public class Biblioteca {
 			System.out.println("Professor cadastrado com sucesso!\n");
 			
 		} else {
-			throw new Exception("Professor já cadastrado!\n");
+			throw new Exception("Professor ja cadastrado!\n");
 		}
 	}
 	
@@ -171,7 +171,7 @@ public class Biblioteca {
 		if( tam < 3){
 			for(int i = 0; i < x.getEmprestimos().size(); i++){
 				if(x.getEmprestimos().get(i).getISBN() == y.getISBN())
-					throw new Exception("O aluno já locou esse livro!\n");
+					throw new Exception("O aluno ja locou esse livro!\n");
 			}
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
@@ -191,7 +191,7 @@ public class Biblioteca {
 		if( tam < 3){
 			for(int i = 0; i < x.getEmprestimos().size(); i++){
 				if(x.getEmprestimos().get(i).getTitulo() == y.getTitulo())
-					throw new Exception("O aluno já locou essa revista!\n");
+					throw new Exception("O aluno ja locou essa revista!\n");
 			}
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
@@ -213,7 +213,7 @@ public class Biblioteca {
 		if( tam < 5){
 			for(int i = 0; i < x.getEmprestimos().size(); i++){
 				if(x.getEmprestimos().get(i).getISBN() == y.getISBN())
-					throw new Exception("O professor já locou esse livro!\n");
+					throw new Exception("O professor ja locou esse livro!\n");
 			}
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
@@ -233,7 +233,8 @@ public class Biblioteca {
 		if( tam < 5){
 			for(int i = 0; i < x.getEmprestimos().size(); i++){
 				if(x.getEmprestimos().get(i).getTitulo() == y.getTitulo())
-					throw new Exception("O professor já locou essa revista!\n");
+					if(x.getEmprestimos().get(i).getEdicao() == y.getEdicao())
+						throw new Exception("O professor ja locou essa revista!\n");
 			}
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
@@ -243,6 +244,96 @@ public class Biblioteca {
 			y.setQuantidade(y.getQuantidade()-1);
 		} else
 			throw new Exception("O professor ja atingiu a cota maxima de livros e revistas locados!\n");
+		
+	}
+	
+	/*---------------------------------- MÉTODOS DE DEVOLUCAO -----------------------------------------------------*/
+	
+	//ALUNOS
+	
+	public void devolucaoLivro(Aluno a, Livro l) throws Exception{
+		Aluno x = alunos.get(findPos(a));
+		Livro y =  livros.get(findPos(l));
+		boolean notFound = true;
+		
+		if(!x.getEmprestimos().isEmpty()){
+			for(int i = 0; i < x.getEmprestimos().size(); i++){
+				if(x.getEmprestimos().get(i).getISBN() == y.getISBN()){
+					x.getEmprestimos().remove(i);
+					y.setQuantidade(y.getQuantidade()+1);
+				} else
+					notFound = true;
+			}
+			
+			if(!notFound)
+				throw new Exception("O aluno nao locou esse livro!\n");
+		} else 
+			throw new Exception("O aluno nao locou nada.\n");
+	}
+	
+	public void devolucaoRevista(Aluno a, Revista r) throws Exception{
+		Aluno x = alunos.get(findPos(a));
+		Revista y =  revistas.get(findPos(r));
+		boolean notFound = true;
+		
+		if(!x.getEmprestimos().isEmpty()){
+			for(int i = 0; i < x.getEmprestimos().size(); i++){
+				if(x.getEmprestimos().get(i).getTitulo() == y.getTitulo())
+					if(x.getEmprestimos().get(i).getEdicao() == y.getEdicao()){
+						x.getEmprestimos().remove(i);
+						y.setQuantidade(y.getQuantidade()+1);
+				} else
+					notFound = true;
+			}
+			
+			if(!notFound)
+				throw new Exception("O aluno nao locou essa revista!\n");
+		} else 
+			throw new Exception("O aluno nao locou nada.\n");
+	}
+	
+	//PROFESSORES 
+	
+	public void devolucaoLivro(Professor p, Livro l) throws Exception{
+		Professor x = professores.get(findPos(p));
+		Livro y =  livros.get(findPos(l));
+		boolean notFound = true;
+		
+		if(!x.getEmprestimos().isEmpty()){
+			for(int i = 0; i < x.getEmprestimos().size(); i++){
+				if(x.getEmprestimos().get(i).getISBN() == y.getISBN()){
+					x.getEmprestimos().remove(i);
+					y.setQuantidade(y.getQuantidade()+1);
+				} else
+					notFound = true;
+			}
+			
+			if(!notFound)
+				throw new Exception("O professor nao locou esse livro!\n");
+		} else 
+			throw new Exception("O professor nao locou nada.\n");
+	}
+	
+	public void devolucaoRevista(Professor p, Revista r) throws Exception{
+		Professor x = professores.get(findPos(p));
+		Revista y =  revistas.get(findPos(r));
+		boolean notFound = true;
+		
+		if(!x.getEmprestimos().isEmpty()){
+			for(int i = 0; i < x.getEmprestimos().size(); i++){
+			if(x.getEmprestimos().get(i).getTitulo() == y.getTitulo())
+				if(x.getEmprestimos().get(i).getEdicao() == y.getEdicao()){
+					x.getEmprestimos().remove(i);
+					y.setQuantidade(y.getQuantidade()+1);
+			} else
+					notFound = true;
+			}
+			
+			if(!notFound)
+				throw new Exception("O professor nao locou essa revista!\n");
+			
+		} else
+			throw new Exception("O professor nao locou nada.\n");
 		
 	}
 	

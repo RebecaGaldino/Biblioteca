@@ -1,5 +1,6 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AlunoUI {
@@ -27,39 +28,12 @@ public class AlunoUI {
 			int op = s.nextInt();
 			switch (op){
 				case 1 : 
-					//Cadastro method TO DO
+					AlunoUI.cadastrarA(b);
 					return true;
 					
 				case 2 : 
-					
-					System.out.println("Insira o ID do aluno:\n");
-					int id = s.nextInt(); 
-					System.out.println("O que voce deseja levar? 1 - Livro 2 - Revista\n");
-					int c = s.nextInt();
-					switch(c){
-					
-						case 1:
-							
-							System.out.println("Insira o ISBN do livro:\n");
-							String isbn = s.nextLine();
-							b.emprestimoAluno(b.findAluno(id), b.findLivro(isbn));
-							return true;
-							
-						case 2:
-							
-							System.out.println("Insira o titulo da revista: (Ex.: Veja)\n");
-							String nome = s.nextLine();
-							System.out.println("Insira a edicao da revista:\n");
-							int ed = s.nextInt();
-							b.emprestimoAluno(b.findAluno(id), b.findRevista(nome,ed));
-							return true;
-						
-						default:
-							
-							System.err.println("Escolha uma opcao valida!\n");
-							return true;
-					}
-					
+					AlunoUI.locarA(b);
+					return true;
 				case 3 : 
 						//DEVOLUCAO METHOD TO DO
 						return true;
@@ -77,5 +51,59 @@ public class AlunoUI {
 	   }
 	}	
 	
+	public static void cadastrarA(Biblioteca b) throws Exception{
+		try{
+			Scanner s = new Scanner(System.in);
+			System.out.println("Insira o id de associado pra o aluno:\n");
+			int id = s.nextInt();
+			System.out.println("Insira o nome dele:\n");
+			String nome = s.nextLine();
+			System.out.println("Insira o endereco dele:\n");
+			String endereco = s.nextLine();
+			ArrayList<Emprestimo> array = new ArrayList<Emprestimo>();
+			Aluno a = new Aluno(id,nome,endereco,array);
+			System.out.println("Cadastro concluido com sucesso!\n");
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+			
+	}
 
+	
+	public static void locarA(Biblioteca b) throws Exception{
+		try{
+			Scanner s = new Scanner(System.in);
+			System.out.println("Insira o ID do aluno:\n");
+			int id = s.nextInt(); 
+			System.out.println("O que voce deseja levar? 1 - Livro 2 - Revista\n");
+			int c = s.nextInt();
+			switch(c){
+			
+				case 1:
+					
+					System.out.println("Insira o ISBN do livro:\n");
+					String isbn = s.nextLine();
+					b.emprestimoAluno(b.findAluno(id), b.findLivro(isbn));
+					break;
+					
+				case 2:
+					
+					System.out.println("Insira o titulo da revista: (Ex.: Veja)\n");
+					String nome = s.nextLine();
+					System.out.println("Insira a edicao da revista:\n");
+					int ed = s.nextInt();
+					b.emprestimoAluno(b.findAluno(id), b.findRevista(nome,ed));
+					break;
+				
+				default:
+					
+					System.err.println("Escolha uma opcao valida!\n");
+					break;
+			}
+		
+	  } catch (Exception e){
+		  System.err.println(e.getMessage());
+	   }
+		
+	}		
 }
