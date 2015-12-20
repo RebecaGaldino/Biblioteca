@@ -1,5 +1,10 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+/**
+ * @author Rayla Medeiros e Rebeca Galdino
+ * Classe principal do projeto Biblioteca, a user interface que reúne as UIs de livro, revista, aluno e professor 
+ */
+
 import java.util.*;
 
 

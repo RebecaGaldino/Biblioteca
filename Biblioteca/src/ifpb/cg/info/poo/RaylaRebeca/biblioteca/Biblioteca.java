@@ -279,7 +279,7 @@ public class Biblioteca {
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
 			gc.add(Calendar.MONTH, 1);
-			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getISBN());
+			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getISBN(), y.getAutor());
 			x.getEmprestimos().add(e);
 			y.setQuantidade(y.getQuantidade()-1);
 		} else
@@ -339,7 +339,7 @@ public class Biblioteca {
 			Date hoje = new Date();
 			GregorianCalendar gc=new GregorianCalendar();
 			gc.add(Calendar.MONTH, 1);
-			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getISBN());
+			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getISBN(),y.getAutor());
 			x.getEmprestimos().add(e);
 			y.setQuantidade(y.getQuantidade()-1);
 		} else

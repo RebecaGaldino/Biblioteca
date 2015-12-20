@@ -1,5 +1,10 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+/**
+ *  @author Rayla Medeiros e Rebeca Galdino
+ *  User Interface da classe Professor do projeto Biblioteca. Apresenta o menu com opcoes relativas ao professor e os metodos delas,
+ *  chamando a classe biblioteca. 
+ */
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,6 +28,12 @@ public class ProfessorUI {
 		
 	}
 	
+	/**
+	 * Subdireciona para os metodos selecionados
+	 * @param b
+	 * @return
+	 * @throws Exception
+	 */
 	public static boolean escolha(Biblioteca b) throws Exception{
 		ProfessorUI prof = new ProfessorUI();
 		try{
@@ -55,6 +66,12 @@ public class ProfessorUI {
 	   }
 	}	
 	
+	/**
+	 * Metodo de cadastro do prof
+	 * @param b, para indicar o array
+	 * @throws Exception 
+	 * @exception Menssagem se o prof ja estiver cadastrado
+	 */
 	public  void cadastrarP(Biblioteca b) throws Exception{
 		try{
 			Scanner s = new Scanner(System.in);
@@ -73,7 +90,12 @@ public class ProfessorUI {
 			
 	}
 
-	
+	/**
+	 * Metodo que oferece a opção de locar um livro ou uma revista ao prof
+	 * @param b
+	 * @throws Exception
+	 * @exception Mensagem se o prof ja atingiu sua cota maxima
+	 */
 	public void locarP(Biblioteca b) throws Exception{
 		try{
 			Scanner s = new Scanner(System.in);
@@ -111,6 +133,11 @@ public class ProfessorUI {
 		
 	}	
 	
+	/**
+	 * Metodo de devolucaoo do livro ou revista locado
+	 * @param b
+	 * @throws Exception Se o livro nao se encontra ou o prov nao possuia nenhum livro
+	 */
 	public void devolverP(Biblioteca b) throws Exception{
 		try{
 			Scanner s = new Scanner(System.in);
@@ -150,6 +177,10 @@ public class ProfessorUI {
 		
 	}
 	
+	/**
+	 * Metodo de exibiçeo do prof por base no seu id de associado
+	 * @param b
+	 */
 	public void exibirP(Biblioteca b){
 		Scanner s = new Scanner(System.in);
 		System.out.println("Insira o ID de associado do professor:\n");

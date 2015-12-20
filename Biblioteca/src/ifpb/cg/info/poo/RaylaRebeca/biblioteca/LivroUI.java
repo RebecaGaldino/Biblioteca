@@ -1,5 +1,9 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+/**
+ * @author Rayla Medeiros e Rebeca Galdino
+ * UI do livro, possuindo o metodo de adicao deles 
+ */
 import java.util.*;
 
 public class LivroUI {

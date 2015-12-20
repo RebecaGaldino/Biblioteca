@@ -1,10 +1,25 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+/**
+ * @author Rayla Medeiros e Rebeca Galdino
+ * lasse do livro do projeto biblioteca. Extende a classe abstrata do exemplar e acrescenta o metodo equals, individual.
+ */
 import java.util.*;
 public class Livro extends AbstractExemplar {
 	private String autor;
 	private String ISBN;
 
+	/**
+	 * Construtor da classe, setando individualmente os atibutos nao gerais de autor e ISBN
+	 * @param titulo
+	 * @param editora
+	 * @param localDeEdicao
+	 * @param keywords
+	 * @param quantidade
+	 * @param edicao
+	 * @param autor
+	 * @param ISBN
+	 */
 	public Livro(String titulo, String editora, String localDeEdicao,
 			ArrayList<String> keywords, int quantidade, int edicao, String autor, String ISBN) {
 		super(titulo, editora, localDeEdicao, keywords, quantidade, edicao);

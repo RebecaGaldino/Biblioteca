@@ -72,10 +72,10 @@ public class AlunoUI {
 	}	
 	
 	/**
-	 * Método de cadastro do aluno
+	 * Metodo de cadastro do aluno
 	 * @param b, para indicar o array
 	 * @throws Exception 
-	 * @exception Menssagem se o aluno já estiver cadastrado
+	 * @exception Menssagem se o aluno ja estiver cadastrado
 	 */
 	public  void cadastrarA(Biblioteca b) throws Exception{
 		try{
@@ -97,10 +97,10 @@ public class AlunoUI {
 	}
 
 	/**
-	 * Método que oferece a opção de locar um livro ou uma revista ao aluno
+	 * Metodo que oferece a opçao de locar um livro ou uma revista ao aluno
 	 * @param b
 	 * @throws Exception
-	 * @exception Mensagem se o aluno já atingiu sua cota máxima
+	 * @exception Mensagem se o aluno ja atingiu sua cota maxima
 	 */
 	public void locarA(Biblioteca b) throws Exception{
 		try{
@@ -140,9 +140,9 @@ public class AlunoUI {
 	}	
 	
 	/**
-	 * Método de devolução do livro ou revista locado
+	 * Metodo de devolucao do livro ou revista locado
 	 * @param b
-	 * @throws Exception Se o livro não se encontra ou o aluno não possuía nenhum livro
+	 * @throws Exception Se o livro nao se encontra ou o aluno nao possuia nenhum livro
 	 */
 	public void devolverA(Biblioteca b) throws Exception{
 		try{
@@ -184,7 +184,7 @@ public class AlunoUI {
 	}
 	
 	/**
-	 * Método de exibição do aluno por base no seu id de associado
+	 * Metodo de exibicaoo do aluno por base no seu id de associado
 	 * @param b
 	 */
 	public void exibirA(Biblioteca b){

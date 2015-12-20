@@ -1,5 +1,9 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+/**
+ * @author Rayla Medeiros e Rebeca Galdino
+ * UI da revista, possuindo o metodo de adicao delas 
+ */
 import java.util.ArrayList;
 import java.util.Scanner;
 
