@@ -1,10 +1,18 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+/**
+ * @author Rebeca Galdino
+ * Classe maior do projeto Biblioteca, contendo os métodos básicos de todos os elementos
+ */
+
 import java.util.*;
 
 
 
 public class Biblioteca {
+	/**
+	 * Arrays para armazenar os elementos do programa que forem registrados
+	 */
 	ArrayList<Revista> revistas = new ArrayList<Revista>();
 	ArrayList<Livro> livros = new ArrayList<Livro>();
 	ArrayList<Professor> professores = new ArrayList<Professor>();
@@ -17,6 +25,11 @@ public class Biblioteca {
 		return revistas.get(index);
 	}
 	
+	/**
+	 * Metodo que verifica se uma revista se encontra registrada 
+	 * @param r, objeto do tipo Revista
+	 * @return true se estiver, false se não
+	 */
 	public boolean findRevista(Revista r){
 		for(int i = 0; i < revistas.size(); i++)
 			if(revistas.get(i).equals(r))
@@ -24,6 +37,12 @@ public class Biblioteca {
 		return false;
 	}
 	
+	/**
+	 * Metodo que verifica se uma revista se encontra registrada a partir de seu titulo e edicao
+	 * @param titulo
+	 * @param edicao
+	 * @return a revista se estiver, null se não.
+	 */
 	public Revista findRevista(String titulo, int edicao){
 		for(int i = 0; i < revistas.size(); i++)
 			if(revistas.get(i).getTitulo() == titulo)
@@ -32,13 +51,22 @@ public class Biblioteca {
 		return null;
 	}
 	
+	/**
+	 * Metodo que encontra a posicao de uma determinada revista no array de revistas
+	 * @param r - a revista
+	 * @return a posicao dela ou 0;
+	 */
 	public int findPos(Revista r){
 		for(int i = 0; i < revistas.size(); i++)
 			if(revistas.get(i).equals(r))
 					return i;
-		return 0;
+		return -1;
 	}
 	
+	/**
+	 * Metodo de adicao da revista, exibindo se for apenas adicionada ou incrementada
+	 * @param r - a revista
+	 */
 	public void addRevista(Revista r){
 		if(!findRevista(r)) {
 			revistas.add(r);
@@ -58,6 +86,11 @@ public class Biblioteca {
 		return livros.get(index);
 	}
 	
+	/**
+	 * Metodo que verifica se um livro se encontra registrado 
+	 * @param l, objeto do tipo Livro
+	 * @return true se estiver, false se não
+	 */
 	public boolean findLivro(Livro l){
 		for(int i = 0; i < livros.size(); i++)
 			if(livros.get(i).equals(l))
@@ -65,6 +98,11 @@ public class Biblioteca {
 		return false;
 	}
 	
+	/**
+	 * Metodo que verifica se um livro se encontra registrado a partir de seu codigo isbn
+	 * @param isbn, codigo diferenciador
+	 * @return o livro se estiver, null se não.
+	 */
 	public Livro findLivro(String isbn){
 		for(int i = 0; i < livros.size(); i++)
 			if(livros.get(i).getISBN() == isbn)
@@ -72,6 +110,11 @@ public class Biblioteca {
 		return null;
 	}
 	
+	/**
+	 * Metodo que encontra a posicao de um determinado livro no array de livros
+	 * @param l - o livro
+	 * @return a posicao dele ou 0;
+	 */
 	public int findPos(Livro l){
 		for(int i = 0; i < livros.size(); i++)
 			if(livros.get(i).equals(l))
@@ -79,6 +122,10 @@ public class Biblioteca {
 		return 0;
 	}
 	
+	/**
+	 * Metodo de adicao do livro, exibindo se for apenas adicionado ou incrementado
+	 * @param l - livro
+	 */
 	public void addLivro(Livro l){
 		if(!findLivro(l)) {
 			livros.add(l);
@@ -98,6 +145,11 @@ public class Biblioteca {
 		return alunos.get(index);
 	}
 	
+	/**
+	 * Metodo que verifica se um aluno se encontra registrado 
+	 * @param a - objeto do tipo Aluno
+	 * @return true se estiver, false se não
+	 */
 	public boolean findAluno(Aluno a){
 		for(int i = 0; i < alunos.size(); i++)
 			if(alunos.get(i).equals(a))
@@ -105,6 +157,11 @@ public class Biblioteca {
 		return false;
 	}
 	
+	/**
+	 * Metodo que encontra a posicao de um determinado aluno no array de alunos
+	 * @param a
+	 * @return a posicao do aluno ou 0, se nao estiver
+	 */
 	public int findPos(Aluno a){
 		for(int i = 0; i < alunos.size(); i++)
 			if(alunos.get(i).equals(a))
@@ -112,6 +169,11 @@ public class Biblioteca {
 		return 0;
 	}
 	
+	/**
+	 * Metodo de identificacao do aluno estar ou nao no array pelo seu id de associado 
+	 * @param id - idAssociado
+	 * @return o objeto do aluno referente ou null
+	 */
 	public Aluno findAluno(int id){
 		for(int i = 0; i < alunos.size(); i++)
 			if(alunos.get(i).getIdAssociado() == id)
@@ -119,6 +181,11 @@ public class Biblioteca {
 		return null;
 	}
 	
+	/**
+	 * Metodo de adicao do aluno no array
+	 * @param a
+	 * @throws Exception se o aluno ja estiver cadastrado
+	 */
 	public void addAluno(Aluno a) throws Exception{
 		if(!findAluno(a)) {
 			alunos.add(a);
@@ -135,6 +202,11 @@ public class Biblioteca {
 		return professores.get(index);
 	}
 	
+	/**
+	 * Metodo que verifica se um professor se encontra registrado 
+	 * @param p - objeto do tipo Professor
+	 * @return true se estiver, false se não
+	 */
 	public boolean findProfessor(Professor p){
 		for(int i = 0; i < professores.size(); i++)
 			if(professores.get(i).equals(p))
@@ -142,6 +214,11 @@ public class Biblioteca {
 		return false;
 	}
 	
+	/**
+	 * Metodo de identificacao do prof estar ou nao no array pelo seu id de associado 
+	 * @param id - idAssociado
+	 * @return o objeto do prof referente ou null
+	 */
 	public Professor findProfessor(int id){
 		for(int i = 0; i < professores.size(); i++)
 			if(professores.get(i).getIdAssociado() == id)
@@ -149,6 +226,11 @@ public class Biblioteca {
 		return null;
 	}
 	
+	/**
+	 * Metodo que encontra a posicao de um determinado professor no array de professores
+	 * @param p
+	 * @return a posicao do prof ou 0, se nao estiver
+	 */
 	public int findPos(Professor p){
 		for(int i = 0; i < professores.size(); i++)
 			if(professores.get(i).equals(p))
@@ -156,6 +238,11 @@ public class Biblioteca {
 		return 0;
 	}
 	
+	/**
+	 * Metodo de adicao do prof no array
+	 * @param a
+	 * @throws Exception se o prof ja estiver cadastrado
+	 */
 	public void addProfessor(Professor p) throws Exception{
 		if(!findProfessor(p)) {
 			professores.add(p);
@@ -171,6 +258,15 @@ public class Biblioteca {
 	
 	//ALUNOS
 	
+	/**
+	 * Metodo que faz o emprestimo do livro indicado ao aluno. Procura a posicao do aluno no array de alunos,
+	 * a do livro no do de livros e o tamanho do seu array de emprestimos, que dependendo do tamanho permitira
+	 * ou nao a locacao. Se sim, verifica-se se o livro ja esta no array, se nao, atribui-se a data, loca-se o livro 
+	 * e o adiciona ao array pessoal de emprestimos do aluno. Alem disso, diminui a quantidade do livro disponivel. 
+	 * @param a
+	 * @param l
+	 * @throws Exception se o aluno tiver atingido a cota de livros ou se ja o tiver locado
+	 */
 	public void emprestimoAluno(Aluno a, Livro l) throws Exception{
 		Aluno x = alunos.get(findPos(a));
 		Livro y =  livros.get(findPos(l));
@@ -191,6 +287,15 @@ public class Biblioteca {
 		
 	}
 	
+	/**
+	 * Metodo que faz o emprestimo da revista indicada ao aluno. Procura a posicao do aluno no array de alunos,
+	 * a da revista no de revistas e o tamanho do seu array de emprestimos, que dependendo do tamanho permitira
+	 * ou nao a locacao. Se sim, verifica-se se a revista ja esta no array, se nao, atribui-se a data, loca-se a revista 
+	 * e o adiciona ao array pessoal de emprestimos do aluno. Alem disso, diminui a quantidade da revista disponivel. 
+	 * @param a
+	 * @param r
+	 * @throws Exception se o aluno tiver atingido a cota de revistas ou se ja a tiver locado
+	 */
 	public void emprestimoAluno(Aluno a, Revista r) throws Exception{
 		Aluno x = alunos.get(findPos(a));
 		Revista y =  revistas.get(findPos(r));
@@ -213,6 +318,15 @@ public class Biblioteca {
 	
 	//PROFESSORES
 	
+	/**
+	 * Metodo que faz o emprestimo do livro indicado ao prof. Procura a posicao do prof no array de profs,
+	 * a do livro no do de livros e o tamanho do seu array de emprestimos, que dependendo do tamanho permitira
+	 * ou nao a locacao. Se sim, verifica-se se o livro ja esta no array, se nao, atribui-se a data, loca-se o livro 
+	 * e o adiciona ao array pessoal de emprestimos do prof. Alem disso, diminui a quantidade do livro disponivel. 
+	 * @param p
+	 * @param l
+	 * @throws Exception se o prof tiver atingido a cota de livros ou se ja o tiver locado
+	 */
 	public void emprestimoProfessor(Professor p, Livro l) throws Exception{
 		Professor x = professores.get(findPos(p));
 		Livro y =  livros.get(findPos(l));
@@ -233,6 +347,15 @@ public class Biblioteca {
 		
 	}
 	
+	/**
+	 * Metodo que faz o emprestimo da revista indicada ao prof. Procura a posicao do prof no array de profs,
+	 * a da revista no de revistas e o tamanho do seu array de emprestimos, que dependendo do tamanho permitira
+	 * ou nao a locacao. Se sim, verifica-se se a revista ja esta no array, se nao, atribui-se a data, loca-se a revista 
+	 * e o adiciona ao array pessoal de emprestimos do prof. Alem disso, diminui a quantidade da revista disponivel. 
+	 * @param p
+	 * @param r
+	 * @throws Exception se o prof tiver atingido a cota de revistas ou se ja a tiver locado
+	 */
 	public void emprestimoProfessor(Professor p, Revista r) throws Exception{
 		Professor x = professores.get(findPos(p));
 		Revista y =  revistas.get(findPos(r));
@@ -256,6 +379,12 @@ public class Biblioteca {
 	
 	//-ALL 
 	
+	/**
+	 * Metodo que exibe os correntes emprestimos do aluno, categorizando por titulo e ISBN 
+	 * se for livro, contendo o campo de ISBN nao nulo, e por titulo  edicao se for revista
+	 * (que contem o ISBN nulo)
+	 * @param a
+	 */
 	public void exibirEmprestimos(Aluno a){
 		Aluno x = alunos.get(findPos(a));
 		for(int i = 0; i < x.getEmprestimos().size(); i++){
@@ -275,6 +404,12 @@ public class Biblioteca {
 		}
 	}
 	
+	/**
+	 * Metodo que exibe os correntes emprestimos do prof, categorizando por titulo e ISBN 
+	 * se for livro, contendo o campo de ISBN nao nulo, e por titulo  edicao se for revista
+	 * (que contem o ISBN nulo)
+	 * @param p
+	 */
 	public void exibirEmprestimos(Professor p){
 		Professor x = professores.get(findPos(p));
 		for(int i = 0; i < x.getEmprestimos().size(); i++){
@@ -299,6 +434,14 @@ public class Biblioteca {
 	
 	//ALUNOS
 	
+	/**
+	 * Metodo que devolve o livro, pegando a pos do aluno no array de alunos, a de livros e verificando se o isbn presente
+	 * no array de emprestimos do selecionado e o correto, ate encontrar e excluir, setando a quantidade para maior no
+	 * array de livros. 
+	 * @param a
+	 * @param l
+	 * @throws Exception Se o aluno nao tiver locado o livro ou se nao tiver locado nada
+	 */
 	public void devolucaoLivro(Aluno a, Livro l) throws Exception{
 		Aluno x = alunos.get(findPos(a));
 		Livro y =  livros.get(findPos(l));
@@ -319,6 +462,14 @@ public class Biblioteca {
 			throw new Exception("O aluno nao locou nada.\n");
 	}
 	
+	/**
+	 * Metodo que devolve a revista, pegando a pos do aluno no array de alunos, a da revista e verificando se o titulo e edicao presentes
+	 * no array de emprestimos do selecionado e o correto, ate encontrar e excluir, setando a quantidade para maior no
+	 * array de revistas. 
+	 * @param a
+	 * @param r
+	 * @throws Exception Se o aluno nao tiver locado a revista ou se nao tiver locado nada
+	 */
 	public void devolucaoRevista(Aluno a, Revista r) throws Exception{
 		Aluno x = alunos.get(findPos(a));
 		Revista y =  revistas.get(findPos(r));
@@ -342,6 +493,14 @@ public class Biblioteca {
 	
 	//PROFESSORES 
 	
+	/**
+	 * Metodo que devolve o livro, pegando a pos do prof no array de profs, a de livros e verificando se o isbn presente
+	 * no array de emprestimos do selecionado e o correto, ate encontrar e excluir, setando a quantidade para maior no
+	 * array de livros. 
+	 * @param a
+	 * @param l
+	 * @throws Exception Se o prof nao tiver locado o livro ou se nao tiver locado nada
+	 */
 	public void devolucaoLivro(Professor p, Livro l) throws Exception{
 		Professor x = professores.get(findPos(p));
 		Livro y =  livros.get(findPos(l));
@@ -362,6 +521,14 @@ public class Biblioteca {
 			throw new Exception("O professor nao locou nada.\n");
 	}
 	
+	/**
+	 * Metodo que devolve a revista, pegando a pos do prof no array de prof, a da revista e verificando se o titulo e edicao presentes
+	 * no array de emprestimos do selecionado e o correto, ate encontrar e excluir, setando a quantidade para maior no
+	 * array de revistas. 
+	 * @param a
+	 * @param r
+	 * @throws Exception Se o prof nao tiver locado a revista ou se nao tiver locado nada
+	 */
 	public void devolucaoRevista(Professor p, Revista r) throws Exception{
 		Professor x = professores.get(findPos(p));
 		Revista y =  revistas.get(findPos(r));

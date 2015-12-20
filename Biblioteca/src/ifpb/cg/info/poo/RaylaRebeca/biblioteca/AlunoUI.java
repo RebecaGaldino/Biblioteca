@@ -1,10 +1,19 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+/**
+ *  @author Rayla Medeiros e Rebeca Galdino
+ *  User Interface da classe Aluno do projeto Biblioteca. Apresenta o menu com opcoe relativas ao aluno e os metodos delas,
+ *  chamando a classe biblioteca. 
+ */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AlunoUI {
-	
+	/**
+	 * Menu principal, indicando as opções acerca dos alunos.
+	 * @param b, objeto de Biblioteca que chamará os métodos.
+	 */
 	public static void inicializar(Biblioteca b){
 		try{
 			do{
@@ -24,6 +33,12 @@ public class AlunoUI {
 		
 	}
 	
+	/**
+	 * Subdireciona para os metodos selecionados
+	 * @param b
+	 * @return
+	 * @throws Exception
+	 */
 	public static boolean escolha(Biblioteca b) throws Exception{
 		AlunoUI aluno = new AlunoUI();
 		try{
@@ -56,6 +71,12 @@ public class AlunoUI {
 	   }
 	}	
 	
+	/**
+	 * Método de cadastro do aluno
+	 * @param b, para indicar o array
+	 * @throws Exception 
+	 * @exception Menssagem se o aluno já estiver cadastrado
+	 */
 	public  void cadastrarA(Biblioteca b) throws Exception{
 		try{
 			Scanner s = new Scanner(System.in);
@@ -67,6 +88,7 @@ public class AlunoUI {
 			String endereco = s.nextLine();
 			ArrayList<Emprestimo> array = new ArrayList<Emprestimo>();
 			Aluno a = new Aluno(id,nome,endereco,array);
+			b.alunos.add(a);
 			System.out.println("Cadastro concluido com sucesso!\n");
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
@@ -74,7 +96,12 @@ public class AlunoUI {
 			
 	}
 
-	
+	/**
+	 * Método que oferece a opção de locar um livro ou uma revista ao aluno
+	 * @param b
+	 * @throws Exception
+	 * @exception Mensagem se o aluno já atingiu sua cota máxima
+	 */
 	public void locarA(Biblioteca b) throws Exception{
 		try{
 			Scanner s = new Scanner(System.in);
@@ -112,6 +139,11 @@ public class AlunoUI {
 		
 	}	
 	
+	/**
+	 * Método de devolução do livro ou revista locado
+	 * @param b
+	 * @throws Exception Se o livro não se encontra ou o aluno não possuía nenhum livro
+	 */
 	public void devolverA(Biblioteca b) throws Exception{
 		try{
 			Scanner s = new Scanner(System.in);
@@ -151,6 +183,10 @@ public class AlunoUI {
 		
 	}
 	
+	/**
+	 * Método de exibição do aluno por base no seu id de associado
+	 * @param b
+	 */
 	public void exibirA(Biblioteca b){
 		Scanner s = new Scanner(System.in);
 		System.out.println("Insira o ID de associado do aluno:\n");

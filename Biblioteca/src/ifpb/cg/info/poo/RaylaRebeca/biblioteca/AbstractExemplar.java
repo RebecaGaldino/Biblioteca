@@ -1,5 +1,10 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+/**
+ * @author Rayla Medeiros e Rebeca Galdino
+ * Classe abstrata do projeto de biblioteca. Contém os métodos relacionados aos exemplares, que são os livros e as revistas.
+ */
+
 import java.util.*;
 
 public abstract class AbstractExemplar {
@@ -11,6 +16,15 @@ public abstract class AbstractExemplar {
 	protected int edicao;
 
 
+	/**
+	 * Construtor da classe abstrata
+	 * @param titulo
+	 * @param editora
+	 * @param localDeEdicao
+	 * @param keywords, arraylist de palavras a serem inseridas pelo usuário no momento de cadastro
+	 * @param quantidade
+	 * @param edicao
+	 */
 	public AbstractExemplar(String titulo, String editora, String localDeEdicao, ArrayList<String> keywords , int quantidade, int edicao) {
 		this.titulo = titulo;
 		this.editora = editora;

@@ -1,5 +1,10 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
+/**
+ * @author Rayla Medeiros e Rebeca Galdino
+ * Classe abstrata do projeto de biblioteca. Contém os métodos relacionados aos associados, que são os alunos e professores.
+ */
+
 import java.util.*;
 
 public abstract class AbstractAssociado {
@@ -8,6 +13,13 @@ public abstract class AbstractAssociado {
 	protected String endereco;
 	ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 
+	/**
+	 * Construtor da classe abstrata
+	 * @param idAssociado
+	 * @param nome
+	 * @param endereco
+	 * @param emprestimos, um arrayList de objetos do tipo emprestimo(que podem ser tanto de livros quanto de revistas) 
+	 */
 	public AbstractAssociado(int idAssociado, String nome, String endereco,
 			ArrayList<Emprestimo> emprestimos) {
 		this.idAssociado = idAssociado;
