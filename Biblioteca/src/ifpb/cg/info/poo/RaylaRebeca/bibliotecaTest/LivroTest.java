@@ -13,8 +13,8 @@ public class LivroTest {
 
 	@Before
 	public void setUp() throws Exception {
-		l1 = new Livro("O Pequeno Prícipe", "Geração Editorial", "SP", 10, 2, "Antoine De Saint-exupéry", "978-8-5813-0307-9");
-		l2 = new Livro("A Culpa é Das Estrelas", "Rocco", "SP", 3, 1, "John Green", "978-8-5805-7226-1");
+		l1 = new Livro("O Pequeno Prícipe", "Geração Editorial", "SP", 10, 2, "Antoine De Saint-exupéry", "978-8-5813-0307-9", "Principe");
+		l2 = new Livro("A Culpa é Das Estrelas", "Rocco", "SP", 3, 1, "John Green", "978-8-5805-7226-1", "August");
 	}
 
 	@Test

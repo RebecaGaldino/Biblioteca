@@ -33,7 +33,9 @@ public class LivroUI {
 			String autor = s.nextLine();
 			System.out.println("Insira o ISBN do livro: \n");
 			String isbn = s.nextLine();
-			Livro livro = new Livro(titulo, editora, edicao, 1, numEdicao, autor, isbn);
+			System.out.println("Insira as palavras-chaves: \n");
+			String Keywords = s.nextLine();
+			Livro livro = new Livro(titulo, editora, edicao, 1, numEdicao, autor, isbn, Keywords);
 			b.addLivro(livro);
 				
 		} catch (Exception e){

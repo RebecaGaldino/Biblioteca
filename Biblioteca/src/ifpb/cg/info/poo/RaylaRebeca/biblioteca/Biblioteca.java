@@ -545,8 +545,5 @@ public class Biblioteca {
 			throw new Exception("O professor nao locou nada.\n");
 		
 	}
-	
-	
-	
-		
+			
 }
