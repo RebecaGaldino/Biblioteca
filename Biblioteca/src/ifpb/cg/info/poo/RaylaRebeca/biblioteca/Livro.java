@@ -20,6 +20,7 @@ public class Livro extends AbstractExemplar {
 	 * @param autor
 	 * @param ISBN
 	 */
+	
 	public Livro(String titulo, String editora, String localDeEdicao, int quantidade, int edicao, String autor, String ISBN, String keywords) {
 		super(titulo, editora, localDeEdicao, quantidade, edicao);
 		setAutor(autor);
