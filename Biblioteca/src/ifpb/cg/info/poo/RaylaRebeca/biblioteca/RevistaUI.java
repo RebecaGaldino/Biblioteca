@@ -20,9 +20,7 @@ public class RevistaUI {
 			String edicao = s.nextLine();
 			System.out.println("Insira as palavras chave:\n");
 			boolean encerrar = false;
-			ArrayList<String> keywords = new ArrayList<String>();
 			while(!encerrar){
-				keywords.add(s.nextLine());
 				System.out.println("Encerrar? (S/N)\n");
 				if(s.nextLine().toUpperCase() == "S")
 					encerrar = true;
