@@ -18,8 +18,8 @@ public class Revista extends AbstractExemplar{
 	 * @param quantidade
 	 * @param edicao
 	 */
-	public Revista(String titulo, String editora, String localDeEdicao, ArrayList<String> keywords, int quantidade, int edicao) {
-		super(titulo, editora, localDeEdicao, keywords, quantidade, edicao);
+	public Revista(String titulo, String editora, String localDeEdicao, int quantidade, int edicao) {
+		super(titulo, editora, localDeEdicao, quantidade, edicao);
 	}
 	
 	

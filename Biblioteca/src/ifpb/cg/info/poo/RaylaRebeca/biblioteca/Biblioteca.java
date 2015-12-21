@@ -1,15 +1,15 @@
 package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 
 /**
- * @author Rebeca Galdino
+ * @author Rayla Medeiros e Rebeca Galdino
  * Classe maior do projeto Biblioteca, contendo os métodos básicos de todos os elementos
  */
 
 import java.util.*;
 
-
-
 public class Biblioteca {
+	
+	Scanner sc = new Scanner(System.in);
 	/**
 	 * Arrays para armazenar os elementos do programa que forem registrados
 	 */
@@ -276,12 +276,11 @@ public class Biblioteca {
 				if(x.getEmprestimos().get(i).getISBN() == y.getISBN())
 					throw new Exception("O aluno ja locou esse livro!\n");
 			}
-			Date hoje = new Date();
-			GregorianCalendar gc=new GregorianCalendar();
-			gc.add(Calendar.MONTH, 1);
-			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getISBN(), y.getAutor());
+			String hoje = sc.nextLine();
+			String gc = sc.nextLine();
+			Emprestimo e = new Emprestimo(hoje, gc, x.getIdAssociado(), y.getISBN(), y.getAutor());
 			x.getEmprestimos().add(e);
-			y.setQuantidade(y.getQuantidade()-1);
+			y.setQuantidade(y.getQuantidade() - 1);
 		} else
 			throw new Exception("O aluno ja atingiu a cota maxima de livros e revistas locados!\n");	
 		
@@ -305,9 +304,8 @@ public class Biblioteca {
 				if(x.getEmprestimos().get(i).getTitulo() == y.getTitulo())
 					throw new Exception("O aluno ja locou essa revista!\n");
 			}
-			Date hoje = new Date();
-			GregorianCalendar gc=new GregorianCalendar();
-			gc.add(Calendar.MONTH, 1);
+			String hoje = sc.nextLine();
+			String gc = sc.nextLine();
 			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getTitulo(),y.getEdicao());
 			x.getEmprestimos().add(e);
 			y.setQuantidade(y.getQuantidade()-1);
@@ -336,9 +334,8 @@ public class Biblioteca {
 				if(x.getEmprestimos().get(i).getISBN() == y.getISBN())
 					throw new Exception("O professor ja locou esse livro!\n");
 			}
-			Date hoje = new Date();
-			GregorianCalendar gc=new GregorianCalendar();
-			gc.add(Calendar.MONTH, 1);
+			String hoje = sc.nextLine();
+			String gc = sc.nextLine();
 			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getISBN(),y.getAutor());
 			x.getEmprestimos().add(e);
 			y.setQuantidade(y.getQuantidade()-1);
@@ -366,9 +363,8 @@ public class Biblioteca {
 					if(x.getEmprestimos().get(i).getEdicao() == y.getEdicao())
 						throw new Exception("O professor ja locou essa revista!\n");
 			}
-			Date hoje = new Date();
-			GregorianCalendar gc=new GregorianCalendar();
-			gc.add(Calendar.MONTH, 1);
+			String hoje = sc.nextLine();
+			String gc = sc.nextLine();
 			Emprestimo e = new Emprestimo(hoje,gc,x.getIdAssociado(),y.getTitulo(),y.getEdicao());
 			x.getEmprestimos().add(e);
 			y.setQuantidade(y.getQuantidade()-1);
@@ -376,8 +372,6 @@ public class Biblioteca {
 			throw new Exception("O professor ja atingiu a cota maxima de livros e revistas locados!\n");
 		
 	}
-	
-	//-ALL 
 	
 	/**
 	 * Metodo que exibe os correntes emprestimos do aluno, categorizando por titulo e ISBN 

@@ -29,7 +29,7 @@ public class RevistaUI {
 			}
 			System.out.println("Insira o numero da edicao: \n");
 			int numEdicao = s.nextInt();
-			Revista revista = new Revista(titulo,editora,edicao,keywords,1,numEdicao);
+			Revista revista = new Revista(titulo, editora, edicao, 1, numEdicao);
 			b.addRevista(revista);
 				
 		} catch (Exception e){

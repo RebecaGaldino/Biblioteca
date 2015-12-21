@@ -10,8 +10,7 @@ import java.util.*;
 public abstract class AbstractExemplar {
 	protected String titulo;
 	protected String editora;
-	protected String localDeEdicao;
-	ArrayList<String> keywords = new ArrayList<String>();
+	protected String localDeEdicao;	
 	protected int quantidade;
 	protected int edicao;
 
@@ -25,14 +24,12 @@ public abstract class AbstractExemplar {
 	 * @param quantidade
 	 * @param edicao
 	 */
-	public AbstractExemplar(String titulo, String editora, String localDeEdicao, ArrayList<String> keywords , int quantidade, int edicao) {
+	public AbstractExemplar(String titulo, String editora, String localDeEdicao, int quantidade, int edicao) {
 		this.titulo = titulo;
 		this.editora = editora;
 		this.localDeEdicao = localDeEdicao;
-		this.keywords = keywords;
 		this.quantidade = quantidade;
 		this.edicao = edicao;
-		setKeywords(keywords);
 	}
 
 	public String getTitulo() {
@@ -59,14 +56,6 @@ public abstract class AbstractExemplar {
 		this.localDeEdicao = localDeEdicao;
 	}
 
-	public ArrayList<String> getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(ArrayList<String> keywords) {
-			this.keywords = keywords;
-		}
-
 	public int getQuantidade() {
 		return quantidade;
 	}
@@ -83,11 +72,4 @@ public abstract class AbstractExemplar {
 		this.edicao = edicao;
 	}
 
-	
-
-
-	
-	
-
-	
 }

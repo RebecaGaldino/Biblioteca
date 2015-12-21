@@ -82,7 +82,7 @@ public class ProfessorUI {
 			System.out.println("Insira o endereco dele:\n");
 			String endereco = s.nextLine();
 			ArrayList<Emprestimo> array = new ArrayList<Emprestimo>();
-			Professor p = new Professor(id,nome,endereco,array);
+			Professor p = new Professor(id,nome,endereco);
 			System.out.println("Cadastro concluido com sucesso!\n");
 		} catch (Exception e) {
 			System.err.println(e.getMessage());

@@ -8,21 +8,20 @@ import java.util.*;
 public class Livro extends AbstractExemplar {
 	private String autor;
 	private String ISBN;
+	ArrayList<String> keywords = new ArrayList<String>();
 
 	/**
 	 * Construtor da classe, setando individualmente os atibutos nao gerais de autor e ISBN
 	 * @param titulo
 	 * @param editora
 	 * @param localDeEdicao
-	 * @param keywords
 	 * @param quantidade
 	 * @param edicao
 	 * @param autor
 	 * @param ISBN
 	 */
-	public Livro(String titulo, String editora, String localDeEdicao,
-			ArrayList<String> keywords, int quantidade, int edicao, String autor, String ISBN) {
-		super(titulo, editora, localDeEdicao, keywords, quantidade, edicao);
+	public Livro(String titulo, String editora, String localDeEdicao, int quantidade, int edicao, String autor, String ISBN) {
+		super(titulo, editora, localDeEdicao, quantidade, edicao);
 		setAutor(autor);
 		setISBN(ISBN);
 	}

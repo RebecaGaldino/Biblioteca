@@ -87,7 +87,7 @@ public class AlunoUI {
 			System.out.println("Insira o endereco dele:\n");
 			String endereco = s.nextLine();
 			ArrayList<Emprestimo> array = new ArrayList<Emprestimo>();
-			Aluno a = new Aluno(id,nome,endereco,array);
+			Aluno a = new Aluno(id, nome, endereco);
 			b.alunos.add(a);
 			System.out.println("Cadastro concluido com sucesso!\n");
 		} catch (Exception e) {

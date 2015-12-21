@@ -8,8 +8,8 @@ package ifpb.cg.info.poo.RaylaRebeca.biblioteca;
 import java.util.*;
 
 public class Emprestimo {
-	private Date dtEmprestimo;
-	private GregorianCalendar dtDevolucao;
+	private String dtEmprestimo;
+	private String dtDevolucao;
 	private String titulo; //para revistas somente
 	private int edicao;
 	private String ISBN;
@@ -23,7 +23,7 @@ public class Emprestimo {
 	 * @param idAssociado
 	 * @param iSBN
 	 */
-	public Emprestimo(Date dtEmprestimo, GregorianCalendar dtDevolucao, int idAssociado, String iSBN, String autor) {
+	public Emprestimo(String dtEmprestimo, String dtDevolucao, int idAssociado, String iSBN, String autor) {
 		setDtEmprestimo(dtEmprestimo);
 		setDtDevolucao(dtDevolucao);
 		setIdAssociado(idAssociado);
@@ -40,7 +40,8 @@ public class Emprestimo {
 	 * @param titulo
 	 * @param edicao
 	 */
-	public Emprestimo(Date dtEmprestimo, GregorianCalendar dtDevolucao, int idAssociado, String titulo, int edicao) {
+		
+	public Emprestimo(String dtEmprestimo, String dtDevolucao, int idAssociado, String titulo, int edicao) {
 		setDtEmprestimo(dtEmprestimo);
 		setDtDevolucao(dtDevolucao);
 		setIdAssociado(idAssociado);
@@ -49,19 +50,19 @@ public class Emprestimo {
 		setISBN(null);
 	}
 
-	public Date getDtEmprestimo() {
+	public String getDtEmprestimo() {
 		return dtEmprestimo;
 	}
 
-	public void setDtEmprestimo(Date dtEmprestimo) {
+	public void setDtEmprestimo(String dtEmprestimo) {
 		this.dtEmprestimo = dtEmprestimo;
 	}
 
-	public GregorianCalendar getDtDevolucao() {
+	public String getDtDevolucao() {
 		return dtDevolucao;
 	}
 
-	public void setDtDevolucao(GregorianCalendar dtDevolucao) {
+	public void setDtDevolucao(String dtDevolucao) {
 		this.dtDevolucao = dtDevolucao;
 	}
 
