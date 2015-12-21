@@ -14,7 +14,6 @@ public class Revista extends AbstractExemplar{
 	 * @param titulo
 	 * @param editora
 	 * @param localDeEdicao
-	 * @param keywords
 	 * @param quantidade
 	 * @param edicao
 	 */
